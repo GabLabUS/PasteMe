@@ -1,0 +1,35 @@
+index.php
+&lt;?php<br />
+    $page_title = 'MakeIt';<br />
+    $input = substr($_SERVER[&quot;REQUEST_URI&quot;], 1);<br />
+    if ($input == '') {<br />
+        $content = file_get_contents('templates/default');<br />
+    } elseif (file_exists('paste/'.$input)) {<br />
+        $handle = fopen('paste/'.$input, 'r');<br />
+        $paste_title = fgets($handle,2048);<br />
+        $paste_content = substr(file_get_contents('paste/'.$input), strlen($paste_title));<br />
+        $content = file_get_contents('templates/paste');<br />
+        $content = str_replace('%title%', $paste_title, $content);<br />
+        $content = str_replace('%bin%', $paste_content, $content);<br />
+	$page_title = $paste_title;<br />
+        fclose($handle);<br />
+    } else {<br />
+        $content = file_get_contents('templates/error');<br />
+    }<br />
+?&gt;<br />
+&lt;html&gt;<br />
+	&lt;head&gt;<br />
+		&lt;title&gt;PasteMe - &lt;?php echo($page_title);?&gt;&lt;/title&gt;<br />
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;css/bootstrap.css&quot;&gt;<br />
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;css/bootstrap-theme.css&quot;&gt;<br />
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;<br />
+		&lt;script src=&quot;js/jquery.js&quot;&gt;&lt;/script&gt;<br />
+		&lt;script src=&quot;js/bootstrap.js&quot;&gt;&lt;/script&gt;<br />
+	&lt;/head&gt;<br />
+	&lt;body&gt;<br />
+        &lt;div class=&quot;container&quot;&gt;<br />
+            &lt;?php echo($content); ?&gt;<br />
+        &lt;/div&gt;<br />
+        &lt;center&gt;&lt;span align=&quot;center&quot; id=&quot;credits&quot;&gt;PasteMe by &lt;a href=&quot;http://gablab.eu/&quot;&gt;Gabriele Assentato&lt;/a&gt;&lt;/span&gt;<br />
+    &lt;body&gt;<br />
+&lt;/html&gt;<br />

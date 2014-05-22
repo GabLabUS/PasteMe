@@ -1,0 +1,6 @@
+<span id="title">PasteMe - Make It</span>
+<form action="new_paste.php" method="POST">
+    <table><tr><td style="width: 100% !important;"><input class="form-control" name="title" placeholder="Enter title"></input></td>
+    <td><button class="btn btn-default" style="margin-left: 12px !important;">Submit</button></td></tr></table>
+	<textarea style="resize: vertical !important; min-height: 420px !important; margin-top: 12px !important;" class="form-control" name="content">Input some content...</textarea>
+</form>
