@@ -19,16 +19,16 @@
 <html>
 	<head>
 		<title>PasteMe - <?php echo($page_title);?></title>
-		<link rel="stylesheet" href="css/bootstrap.css">
-		<link rel="stylesheet" href="css/bootstrap-theme.css">
-		<link rel="stylesheet" href="css/style.css">
-		<script src="js/jquery.js"></script>
-		<script src="js/bootstrap.js"></script>
+		<link rel="stylesheet" href="/css/bootstrap.css">
+		<link rel="stylesheet" href="/css/bootstrap-theme.css">
+		<link rel="stylesheet" href="/css/style.css">
+		<script src="/js/jquery.js"></script>
+		<script src="/js/bootstrap.js"></script>
 	</head>
 	<body>
         <div class="container">
             <?php echo($content); ?>
         </div>
-        <center><span align="center" id="credits">PasteMe by <a href="http://gablab.eu/">Gabriele Assentato</a></span>
-    <body>
+        <center><span align="center" id="credits">PasteMe by <a href="http://gablab.eu/">Gabriele Assentato</a></span></center>
+    </body>
 </html>
